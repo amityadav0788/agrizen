@@ -1,10 +1,12 @@
 package com.dataoracle.agrizen
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.dataoracle.agrizen.helper.constants
 
 
 class LoginActivity : AppCompatActivity() {
@@ -26,7 +28,19 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this@LoginActivity, VerifyPhoneActivity::class.java).apply {
                 putExtra("mobile", mobile)
             }
-            startActivity(intent)
+            startActivityForResult(intent, constants.LAUNCH_VERIFY_CODE)
         })
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == constants.LAUNCH_VERIFY_CODE) {
+            if(resultCode == Activity.RESULT_OK) {
+                setResult(Activity.RESULT_OK);
+                finish()
+            } else if(resultCode == constants.VERIFICATION_FAILURE) {
+
+            }
+        }
     }
 }

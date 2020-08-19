@@ -1,10 +1,12 @@
 package com.dataoracle.agrizen
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.dataoracle.agrizen.helper.constants
 import com.google.android.gms.tasks.TaskExecutors
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.FirebaseException
@@ -117,25 +119,20 @@ class VerifyPhoneActivity : AppCompatActivity() {
                 this@VerifyPhoneActivity
             ) { task ->
                 if (task.isSuccessful) {
-                    //verification successful we will start the profile activity
+                    closeAndSendSuccess()
                 } else {
-
-                    //verification unsuccessful.. display an error message
-                    var message =
-                        "Somthing is wrong, we will fix it soon..."
-                    if (task.exception is FirebaseAuthInvalidCredentialsException) {
-                        message = "Invalid code entered..."
-                    }
-                    val snackbar = Snackbar.make(
-                        findViewById(R.id.parent),
-                        message,
-                        Snackbar.LENGTH_LONG
-                    )
-                    snackbar.setAction(
-                        "Dismiss"
-                    ) { }
-                    snackbar.show()
+                    closeAndSendFailure()
                 }
             }
+    }
+
+    fun closeAndSendSuccess() {
+        setResult(Activity.RESULT_OK)
+        finish()
+    }
+
+    fun closeAndSendFailure() {
+        setResult(constants.VERIFICATION_FAILURE)
+        finish()
     }
 }
