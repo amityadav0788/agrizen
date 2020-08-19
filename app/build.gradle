@@ -3,6 +3,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('C:\\Users\\amiyada\\Documents\\StudyAndProjects\\agrizen\\agrizen_sign_1.jks')
+            storePassword 'agrizen@store'
+            keyAlias 'agrizen_key'
+            keyPassword 'agrizen@key'
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion "30.0.0"
 
@@ -46,5 +54,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
+    implementation 'com.google.firebase:firebase-core:17.5.0'
+    implementation 'com.google.firebase:firebase-auth:19.3.2'
 }
+apply plugin: 'com.google.gms.google-services'

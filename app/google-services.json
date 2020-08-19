@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "423292731950",
+    "firebase_url": "https://agrizen-f7406.firebaseio.com",
+    "project_id": "agrizen-f7406",
+    "storage_bucket": "agrizen-f7406.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:423292731950:android:20d351c7b4f9974ed715bf",
+        "android_client_info": {
+          "package_name": "com.dataoracle.agrizen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "423292731950-2qdi4s3pqkb1j6ltjl2cka5e8ks9015i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dataoracle.agrizen",
+            "certificate_hash": "d4f2861d4d7106062f40ec293828fd0a83f32339"
+          }
+        },
+        {
+          "client_id": "423292731950-u6jgtvgkqkdmea65mh1hcprpu9djsrcc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRjxZgEL6vNgCY9ZKc6FGyRDIUjiIxN3Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "423292731950-u6jgtvgkqkdmea65mh1hcprpu9djsrcc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
