@@ -26,6 +26,8 @@ class VerifyPhoneActivity : AppCompatActivity() {
     //The edittext to input the code
     private lateinit var editTextCode: EditText
 
+    var phoneNumber: String? = null
+
     //firebase auth object
     private var mAuth: FirebaseAuth? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,8 +42,8 @@ class VerifyPhoneActivity : AppCompatActivity() {
         //getting mobile number from the previous activity
         //and sending the verification code to the number
         val intent = intent
-        val mobile = intent.getStringExtra("mobile")
-        sendVerificationCode(mobile)
+        phoneNumber = intent.getStringExtra("mobile")
+        sendVerificationCode(phoneNumber)
 
 
         //if the automatic sms detection did not work, user can also enter the code manually
