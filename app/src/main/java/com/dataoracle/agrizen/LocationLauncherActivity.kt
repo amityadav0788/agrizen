@@ -54,17 +54,12 @@ class LocationLauncherActivity : AppCompatActivity() {
                         return@OnSuccessListener
                     }
                     mLastLocation = location
-
                     // Determine whether a Geocoder is available.
                     if (!Geocoder.isPresent()) {
                         showSnackbar("No geocode")
                         return@OnSuccessListener
                     }
-                    mAddressOutput = LocationUtils.getCompleteAddressString(
-                        this,
-                        mLastLocation!!.latitude,
-                        mLastLocation!!.longitude
-                    )
+                    mAddressOutput = LocationUtils.getCompleteAddressString(this, mLastLocation!!.latitude, mLastLocation!!.longitude)
                     setResultAndSendSuccess()
                 })
             ?.addOnFailureListener(this,
