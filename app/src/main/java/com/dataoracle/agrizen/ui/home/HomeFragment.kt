@@ -42,8 +42,8 @@ class HomeFragment : Fragment() {
 
     fun initHomeItemList() {
         //TODO hit the backend service and get the list data
-        homeItemList.add(HomeListItem("test1",constants.CLOUDINARY_SAMPLE,"sample"))
-        homeItemList.add(HomeListItem("test2",constants.CLOUDINARY_SAMPLE,"sample"))
-        homeItemList.add(HomeListItem("test3",constants.CLOUDINARY_SAMPLE,"sample"))
+        for(i in 1..10) {
+            homeItemList.add(HomeListItem("test$i",constants.CLOUDINARY_SAMPLE,"sample$i"))
+        }
     }
 }
