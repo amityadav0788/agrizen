@@ -10,6 +10,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.cloudinary.android.MediaManager
 import com.dataoracle.agrizen.helper.constants
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +36,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun launchHomePage() {
+        val config: MutableMap<String, String> = HashMap()
+        config["cloud_name"] = "aky0788"
+        MediaManager.init(this, config)
+
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
