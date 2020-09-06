@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.dataoracle.agrizen.ui.dashboard.DashboardFragment"
+        android:name="com.dataoracle.agrizen.ui.Sell.SellFragment"
         android:label="@string/title_sell"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_sell" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.dataoracle.agrizen.ui.notifications.NotificationsFragment"
+        android:name="com.dataoracle.agrizen.ui.Profile.ProfileFragment"
         android:label="@string/title_profile"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_profile" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.dataoracle.agrizen.ui.dashboard
+package com.dataoracle.agrizen.ui.Sell
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.dataoracle.agrizen.R
 
-class DashboardFragment : Fragment() {
+class SellFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var sellViewModel: SellViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
+        sellViewModel =
+                ViewModelProviders.of(this).get(SellViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_sell, container, false)
         val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        sellViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
