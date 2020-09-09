@@ -69,6 +69,9 @@ class MainActivity : AppCompatActivity() {
                 val sharedPref = this?.getPreferences(Context.MODE_PRIVATE)
                 with (sharedPref.edit()) {
                     putBoolean(getString(R.string.is_user_logged_in), true)
+                    if (data != null) {
+                        putString(getString(R.string.user_id), data.getStringExtra("user_id"))
+                    }
                     commit()
                 }
                 if(isLocationSet)

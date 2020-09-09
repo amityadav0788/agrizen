@@ -39,7 +39,9 @@ class LoginActivity : AppCompatActivity() {
         if(requestCode == constants.LAUNCH_VERIFY_CODE) {
             if(resultCode == Activity.RESULT_OK) {
                 // todo send phone number back to main activity
-                setResult(Activity.RESULT_OK);
+                val resultIntent = Intent()
+                resultIntent.putExtra("user_id", phoneNumber)
+                setResult(Activity.RESULT_OK, resultIntent)
                 finish()
             } else if(resultCode == constants.VERIFICATION_FAILURE) {
 
