@@ -12,7 +12,7 @@ import com.cloudinary.android.MediaManager
 import com.dataoracle.agrizen.R
 import com.dataoracle.agrizen.ui.datamodel.HomeListItem
 
-class HomeRecyclerViewAdapter(val homeItems: ArrayList<HomeListItem>, val context: Context) :
+class HomeRecyclerViewAdapter(val homeItems: ArrayList<HomeListItem>, val context: Context, private val onClickListener: (View, HomeListItem) -> Unit) :
         RecyclerView.Adapter<HomeRecyclerViewAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -41,6 +41,9 @@ class HomeRecyclerViewAdapter(val homeItems: ArrayList<HomeListItem>, val contex
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.itemView.setOnClickListener {view ->
+            onClickListener.invoke(view, homeItems[position])
+        }
         holder.nameItem.text = homeItems[position].nameItem
         Glide.with(context).load(MediaManager.get().url().generate("sample.jpg")).into(holder.thumbNail)
     }

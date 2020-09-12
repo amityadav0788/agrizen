@@ -8,6 +8,7 @@ class constants {
         const val VERIFICATION_FAILURE = LAUNCH_LOGIN_CODE+2
         const val LAUNCH_LOCATION_CODE = LAUNCH_LOGIN_CODE+3
         const val REQUEST_FOREGROUND_ONLY_PERMISSIONS_REQUEST_CODE = LAUNCH_LOGIN_CODE+4
+        const val LAUNCH_DETAILS_CODE = LAUNCH_LOGIN_CODE+4
 
         const val PACKAGE_NAME = "com.dataoracle.agrizen"
         const val RECEIVER = "$PACKAGE_NAME.RECEIVER"

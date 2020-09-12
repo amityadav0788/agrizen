@@ -1,16 +1,20 @@
 package com.dataoracle.agrizen.ui.home
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.dataoracle.agrizen.ItemDetailsActivity
 import com.dataoracle.agrizen.R
+import com.dataoracle.agrizen.VerifyPhoneActivity
 import com.dataoracle.agrizen.helper.constants
 import com.dataoracle.agrizen.ui.adapter.HomeRecyclerViewAdapter
 import com.dataoracle.agrizen.ui.datamodel.HomeListItem
@@ -35,7 +39,7 @@ class HomeFragment : Fragment() {
         layoutManager = GridLayoutManager(this?.activity, 2)
         id_homeRecyclerView.layoutManager = layoutManager
 
-        adapter = this?.activity?.let { HomeRecyclerViewAdapter(homeItemList, it) }
+        adapter = this?.activity?.let { HomeRecyclerViewAdapter(homeItemList, it, onClickListener = {view, HomeListItem->openItemDetails()}) }
         id_homeRecyclerView.adapter = adapter
         return root
     }
@@ -45,5 +49,12 @@ class HomeFragment : Fragment() {
         for(i in 1..10) {
             homeItemList.add(HomeListItem("test$i",constants.CLOUDINARY_SAMPLE,"sample$i"))
         }
+    }
+
+    fun openItemDetails() {
+        val intent = Intent(this?.activity, ItemDetailsActivity::class.java).apply {
+            putExtra("itemId", "")
+        }
+        startActivityForResult(intent, constants.LAUNCH_DETAILS_CODE)
     }
 }
