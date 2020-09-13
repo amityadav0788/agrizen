@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.PagerAdapter
 import com.bumptech.glide.Glide
 import com.cloudinary.android.MediaManager
+import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_item_details.*
 
 
@@ -21,6 +22,8 @@ class ItemDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_item_details)
         id_item_pictures_viewpager.adapter = SlidingImage_Adapter(this, mImagesList)
+        var tabLayout: TabLayout = findViewById(R.id.id_item_tab_layout)
+        tabLayout.setupWithViewPager(id_item_pictures_viewpager)
     }
 
     class SlidingImage_Adapter(context: Context, IMAGES: ArrayList<Int>) :
